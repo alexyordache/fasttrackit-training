@@ -1,6 +1,5 @@
 package ro.fasttrackit.course3;
 
-import java.util.Date;
 
 public class Professor {
     private String lastName;
