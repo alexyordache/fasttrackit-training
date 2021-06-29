@@ -12,6 +12,10 @@ public class Main {
         System.out.println(prof1.getType());
         System.out.println(prof1);
 
+        Professor prof2 = new Professor();
+        prof2.setType(ProfessorType.PROFESSOR);
+        System.out.println("--------------" + prof2.getType().getYourScholarType());
+
         Student stud1 = new Student("Michael", "Jordan", "12.12.1995", "01.09.2020", "UTCN", "Math", StudentType.BACHELOR);
         System.out.println(stud1);
         System.out.println(stud1.isHappyToday(false));
@@ -21,6 +25,8 @@ public class Main {
         stud2.setFirstName("Will");
         stud2.setLastName("Smith");
         System.out.println(stud2);
+        stud2.setType(StudentType.MASTERS);
+        System.out.println("--------------" + stud2.getType().getYourScholarType());
 
 
     }
