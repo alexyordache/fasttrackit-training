@@ -13,6 +13,10 @@ public class Factorial {
         System.out.println("Enter the number for which you want to calculate the factorial");
         int facNumber = scanner.nextInt();
         System.out.println("Factorial of " + facNumber + " is: " + factorial(facNumber));
+
+        System.out.println("factorial");
+        System.out.println(fact(facNumber));
+
     }
 
     public static double factorial(int n) {
@@ -21,5 +25,13 @@ public class Factorial {
         } else {
             return (n * factorial(n - 1));
         }
+    }
+
+    public static double fact(int n) {
+        double fac = 1;
+        for (int i = 1; i <= n; i++) {
+            fac = fac * i;
+        }
+        return fac;
     }
 }
