@@ -25,7 +25,7 @@ public class HumanRepository<T extends Human> {
     }
 
     public List<T> getAll() {
-        return humans;
+        return humans.stream().collect(Collectors.toList());
     }
 
     public void deleteById(int id) {
