@@ -1,8 +1,10 @@
 package ro.fasttrackit.course5;
 
 import java.util.Objects;
+import java.util.UUID;
 
 public class Student implements Human {
+    private UUID id;
     private String firstName;
     private String lastName;
     private String dateOfBirth;
@@ -15,7 +17,8 @@ public class Student implements Human {
 
     }
 
-    public Student(String firstName, String lastName, String dateOfBirth, String dateOfEnrollment, String facultyName, String specializationName, StudentType type) {
+    public Student(UUID id, String firstName, String lastName, String dateOfBirth, String dateOfEnrollment, String facultyName, String specializationName, StudentType type) {
+        this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.dateOfBirth = dateOfBirth;
@@ -42,6 +45,14 @@ public class Student implements Human {
     @Override
     public String saySomethingAboutYou() {
         return "I'm a student and I always like to learn new things.";
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getFirstName() {
@@ -103,7 +114,8 @@ public class Student implements Human {
     @Override
     public String toString() {
         return "Student{" +
-                "firstName='" + firstName + '\'' +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", dateOfBirth='" + dateOfBirth + '\'' +
                 ", dateOfEnrollment='" + dateOfEnrollment + '\'' +
