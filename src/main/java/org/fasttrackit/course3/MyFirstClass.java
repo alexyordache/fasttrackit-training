@@ -1,7 +1,5 @@
 package org.fasttrackit.course3;
 
-import org.fasttrackit.course3.model.Car;
-
 public class MyFirstClass {
     public static void main(String[] args) {
         System.out.println("Hello world");
@@ -11,6 +9,8 @@ public class MyFirstClass {
 
         alexsCar.brand = "Dacia";
         mihneasCar.brand = "Audi";
+        alexsCar.numberOfDoors = 5;
+        alexsCar.numberOfWheels = 4;
 
         System.out.println("Alex's car is: " + mihneasCar.brand);
         System.out.println("Mihnea's car is: " + alexsCar.brand);
