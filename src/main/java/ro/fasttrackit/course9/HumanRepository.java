@@ -27,7 +27,7 @@ public class HumanRepository<T extends Human> {
 
     public List<T> getAll() {
         System.out.println("--------------------getAll--------------------");
-        return humans.stream().collect(Collectors.toList());
+        return humans;
     }
 
     public void deleteById(String id) {
@@ -38,13 +38,6 @@ public class HumanRepository<T extends Human> {
                 .get();
         humans.remove(exists);
     }
-
-/*    public void updateById2(int id, T human) {
-        T existing = humans.stream().filter(h -> h.getId().equals(id)).findFirst()
-                .orElseThrow("Human with id " + id + " does not exist");
-        humans.remove(existing); // Assumes T implements equals() and hashCode()
-        humans.add(human);
-    }*/
 
     public void updateById(String id, T human) {
         System.out.println("--------------------updateById--------------------");
