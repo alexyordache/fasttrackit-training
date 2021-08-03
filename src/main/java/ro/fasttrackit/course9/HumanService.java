@@ -19,28 +19,27 @@ import java.util.UUID;
  */
 
 public class HumanService {
+    private final static HumanRepository<Student> studentRepository = new HumanRepository<>();
+    private final static HumanRepository<Professor> professorRepository = new HumanRepository<>();
 
     public static void main(String[] args) {
-        HumanRepository<Student> studentRepository = new HumanRepository<>();
-        HumanRepository<Professor> professorRepository = new HumanRepository<>();
+        studentRepository.add(new Student("01", "Michael", "Jordan", "12.12.1999", "01.09.2020", "UTCN", "Math", StudentType.BACHELOR));
+        studentRepository.add(new Student("02", "John", "Doe", "12.12.1995", "01.09.2021", "UBB", "Chemistry", StudentType.PHD));
+        studentRepository.add(new Student("03", "Mihai", "Froid", "12.12.1996", "01.09.2023", "RRR", "Biology", StudentType.MASTERS));
+        professorRepository.add(new Professor("04", "Mihai", "Eminescu", "12.10.1999", "20.10.2019", "Info", ProfessorType.PROFESSOR));
+        System.out.println(studentRepository.getAll());
+        System.out.println(professorRepository.getAll());
 
-        studentRepository.add(new Student(UUID.randomUUID(), "Michael", "Jordan", "12.12.1999", "01.09.2020", "UTCN", "Math", StudentType.BACHELOR));
-        studentRepository.add(new Student(UUID.randomUUID(), "John", "Doe", "12.12.1995", "01.09.2021", "UBB", "Chemistry", StudentType.PHD));
-        studentRepository.add(new Student(UUID.randomUUID(), "Mihai", "Froid", "12.12.1996", "01.09.2023", "RRR", "Biology", StudentType.MASTERS));
-        professorRepository.add(new Professor(UUID.randomUUID(), "Mihai", "Eminescu", "12.10.1999", "20.10.2019", "Info", ProfessorType.PROFESSOR));
+        studentRepository.updateById("01", new Student("12", "Vladimir", "Igor", "12.12.1993", "01.09.1999", "UTCN", "Math", StudentType.BACHELOR));
+        studentRepository.updateById("02", new Student("13", "James", "Bond", "12.12.1907", "01.09.1999", "UBB", "Math", StudentType.BACHELOR));
         System.out.println(studentRepository.getAll());
 
-        studentRepository.updateById(0, new Student(UUID.randomUUID(), "Vladimir", "Igor", "12.12.1993", "01.09.1999", "UTCN", "Math", StudentType.BACHELOR));
-        studentRepository.updateById(2, new Student(UUID.randomUUID(), "James", "Bond", "12.12.1907", "01.09.1999", "UBB", "Math", StudentType.BACHELOR));
-        System.out.println(studentRepository.getAll());
+        studentRepository.deleteById("03");
+        studentRepository.deleteById("13");
+        System.out.println("After deleteByID" + studentRepository.getAll());
 
-        studentRepository.deleteById(0);
-        studentRepository.deleteById(1);
-        System.out.println(studentRepository.getAll());
+        System.out.println(studentRepository.getById("12"));
 
-        studentRepository.getById(0);
-
-        System.out.println(studentRepository.getAllByName("John"));
-
+        System.out.println(studentRepository.getAllByName("Vladimir"));
     }
 }

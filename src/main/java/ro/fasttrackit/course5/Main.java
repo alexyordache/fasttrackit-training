@@ -4,7 +4,7 @@ import java.util.UUID;
 
 public class Main {
     public static void main(String[] args) {
-        Professor prof1 = new Professor(UUID.randomUUID(),"John", "Doe", "12.10.1999", "20.10.2019", "Info", ProfessorType.PROFESSOR);
+        Professor prof1 = new Professor("01","John", "Doe", "12.10.1999", "20.10.2019", "Info", ProfessorType.PROFESSOR);
         prof1.eat();
         System.out.println(prof1.isHappyToday(true));
         System.out.println(prof1.saySomethingAboutYou());
@@ -18,7 +18,7 @@ public class Main {
         prof2.setType(ProfessorType.PROFESSOR);
         System.out.println("--------------" + prof2.getType().getYourScholarType());
 
-        Student stud1 = new Student(UUID.randomUUID(), "Michael", "Jordan", "12.12.1995", "01.09.2020", "UTCN", "Math", StudentType.BACHELOR);
+        Student stud1 = new Student("01", "Michael", "Jordan", "12.12.1995", "01.09.2020", "UTCN", "Math", StudentType.BACHELOR);
         System.out.println(stud1);
         System.out.println(stud1.isHappyToday(false));
 

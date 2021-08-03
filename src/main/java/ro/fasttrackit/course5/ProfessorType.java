@@ -6,6 +6,7 @@ public enum ProfessorType implements ScholarType {
     PROFESSOR("Professor type is professor");
 
     private String description;
+
     ProfessorType(String description) {
         this.description = description;
     }

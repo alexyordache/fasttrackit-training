@@ -1,10 +1,9 @@
 package ro.fasttrackit.course5;
 
 import java.util.Objects;
-import java.util.UUID;
 
 public class Student implements Human {
-    private UUID id;
+    private String id;
     private String firstName;
     private String lastName;
     private String dateOfBirth;
@@ -14,10 +13,9 @@ public class Student implements Human {
     private StudentType type;
 
     public Student() {
-
     }
 
-    public Student(UUID id, String firstName, String lastName, String dateOfBirth, String dateOfEnrollment, String facultyName, String specializationName, StudentType type) {
+    public Student(String id, String firstName, String lastName, String dateOfBirth, String dateOfEnrollment, String facultyName, String specializationName, StudentType type) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -47,11 +45,11 @@ public class Student implements Human {
         return "I'm a student and I always like to learn new things.";
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -113,7 +111,7 @@ public class Student implements Human {
 
     @Override
     public String toString() {
-        return "Student{" +
+        return "\nStudent{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -130,7 +128,8 @@ public class Student implements Human {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Student student = (Student) o;
-        return Objects.equals(firstName, student.firstName)
+        return Objects.equals(id, student.id)
+                && Objects.equals(firstName, student.firstName)
                 && Objects.equals(lastName, student.lastName)
                 && Objects.equals(dateOfBirth, student.dateOfBirth)
                 && Objects.equals(dateOfEnrollment, student.dateOfEnrollment)
@@ -141,6 +140,6 @@ public class Student implements Human {
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, dateOfBirth, dateOfEnrollment, facultyName, specializationName, type);
+        return Objects.hash(id, firstName, lastName, dateOfBirth, dateOfEnrollment, facultyName, specializationName, type);
     }
 }

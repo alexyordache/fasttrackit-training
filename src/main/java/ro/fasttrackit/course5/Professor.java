@@ -1,10 +1,9 @@
 package ro.fasttrackit.course5;
 
 import java.util.Objects;
-import java.util.UUID;
 
 public class Professor implements Human {
-    private UUID id;
+    private String id;
     private String firstName;
     private String lastName;
     private String dateOfBirth;
@@ -13,10 +12,9 @@ public class Professor implements Human {
     private ProfessorType type;
 
     public Professor() {
-
     }
 
-    public Professor(UUID id, String firstName, String lastName, String dateOfBirth, String dateOfHiring, String specializationName, ProfessorType type) {
+    public Professor(String id, String firstName, String lastName, String dateOfBirth, String dateOfHiring, String specializationName, ProfessorType type) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
@@ -45,11 +43,11 @@ public class Professor implements Human {
         return "I'm a professor and I'm always doing my best to teach my students.";
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -103,7 +101,7 @@ public class Professor implements Human {
 
     @Override
     public String toString() {
-        return "Professor{" +
+        return "\nProfessor{" +
                 "id=" + id +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
@@ -119,7 +117,8 @@ public class Professor implements Human {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Professor professor = (Professor) o;
-        return Objects.equals(firstName, professor.firstName)
+        return Objects.equals(id, professor.id)
+                && Objects.equals(firstName, professor.firstName)
                 && Objects.equals(lastName, professor.lastName)
                 && Objects.equals(dateOfBirth, professor.dateOfBirth)
                 && Objects.equals(dateOfHiring, professor.dateOfHiring)
@@ -129,6 +128,6 @@ public class Professor implements Human {
 
     @Override
     public int hashCode() {
-        return Objects.hash(firstName, lastName, dateOfBirth, dateOfHiring, specializationName, type);
+        return Objects.hash(id, firstName, lastName, dateOfBirth, dateOfHiring, specializationName, type);
     }
 }

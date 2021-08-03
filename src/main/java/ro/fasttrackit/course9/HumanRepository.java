@@ -21,26 +21,53 @@ public class HumanRepository<T extends Human> {
     List<T> humans = new ArrayList<>();
 
     public void add(T toAdd) {
+        System.out.println("--------------------add--------------------");
         humans.add(toAdd);
     }
 
     public List<T> getAll() {
+        System.out.println("--------------------getAll--------------------");
         return humans.stream().collect(Collectors.toList());
     }
 
-    public void deleteById(int id) {
-        humans.remove(id);
+    public void deleteById(String id) {
+        System.out.println("--------------------deleteById--------------------");
+        T exists = humans.stream()
+                .filter(t -> (t.getId() == id))
+                .findFirst()
+                .get();
+        humans.remove(exists);
     }
 
-    public void updateById(int id, T human) {
-        humans.set(id, human);
+/*    public void updateById2(int id, T human) {
+        T existing = humans.stream().filter(h -> h.getId().equals(id)).findFirst()
+                .orElseThrow("Human with id " + id + " does not exist");
+        humans.remove(existing); // Assumes T implements equals() and hashCode()
+        humans.add(human);
+    }*/
+
+    public void updateById(String id, T human) {
+        System.out.println("--------------------updateById--------------------");
+        T exists = humans.stream()
+                .filter(t -> (t.getId() == id))
+                .findFirst()
+                .get();
+        humans.remove(exists); // Assumes T implements equals() and hashCode()
+        humans.add(human);
     }
 
-    public void getById(int id) {
-        System.out.println(humans.get(id));
+    public String getById(String id) {
+        System.out.println("--------------------getById--------------------");
+        return humans.stream()
+                .filter(t -> (t.getId() == id))
+                .collect(Collectors.toList())
+                .toString();
     }
 
     public List<T> getAllByName(String name) {
-        return humans.stream().filter(t -> t.getFirstName().startsWith(name)).collect(Collectors.toList());
+        System.out.println("--------------------getAllByName--------------------");
+        return humans.stream()
+                .filter(t -> t.getFirstName().startsWith(name))
+                .collect(Collectors.toList());
     }
 }
