@@ -12,7 +12,9 @@ public class Student implements Human {
     private String specializationName;
     private StudentType type;
 
-    public Student() {
+    public Student(String id, String firstName) {
+        this.id = id;
+        this.firstName = firstName;
     }
 
     public Student(String id, String firstName, String lastName, String dateOfBirth, String dateOfEnrollment, String facultyName, String specializationName, StudentType type) {

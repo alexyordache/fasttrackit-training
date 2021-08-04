@@ -1,7 +1,5 @@
 package ro.fasttrackit.course5;
 
-import java.util.UUID;
-
 public class Main {
     public static void main(String[] args) {
         Professor prof1 = new Professor("01","John", "Doe", "12.10.1999", "20.10.2019", "Info", ProfessorType.PROFESSOR);
@@ -14,7 +12,7 @@ public class Main {
         System.out.println(prof1.getType());
         System.out.println(prof1);
 
-        Professor prof2 = new Professor();
+        Professor prof2 = new Professor("012", "Madeira");
         prof2.setType(ProfessorType.PROFESSOR);
         System.out.println("--------------" + prof2.getType().getYourScholarType());
 
@@ -22,14 +20,12 @@ public class Main {
         System.out.println(stud1);
         System.out.println(stud1.isHappyToday(false));
 
-        Student stud2 = new Student();
+        Student stud2 = new Student("012", "Triumf");
         System.out.println(stud2);
         stud2.setFirstName("Will");
         stud2.setLastName("Smith");
         System.out.println(stud2);
         stud2.setType(StudentType.MASTERS);
         System.out.println("--------------" + stud2.getType().getYourScholarType());
-
-
     }
 }

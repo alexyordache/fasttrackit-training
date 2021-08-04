@@ -11,7 +11,9 @@ public class Professor implements Human {
     private String specializationName;
     private ProfessorType type;
 
-    public Professor() {
+    public Professor(String id, String firstName) {
+        this.id = id;
+        this.firstName = firstName;
     }
 
     public Professor(String id, String firstName, String lastName, String dateOfBirth, String dateOfHiring, String specializationName, ProfessorType type) {

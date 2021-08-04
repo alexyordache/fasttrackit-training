@@ -23,6 +23,7 @@ public class HumanService {
     private final static HumanRepository<Professor> professorRepository = new HumanRepository<>();
 
     public static void main(String[] args) throws ValidationException, EntityNotFoundException {
+        studentRepository.add(new Student("20", "Traian"));
         studentRepository.add(new Student("01", "Michael", "Jordan", "12.12.1999", "01.09.2020", "UTCN", "Math", StudentType.BACHELOR));
         studentRepository.add(new Student("02", "John", "Doe", "12.12.1995", "01.09.2021", "UBB", "Chemistry", StudentType.PHD));
         studentRepository.add(new Student("03", "Mihai", "Froid", "12.12.1996", "01.09.2023", "RRR", "Biology", StudentType.MASTERS));

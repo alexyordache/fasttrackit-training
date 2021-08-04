@@ -26,7 +26,7 @@ public class HumanRepository<T extends Human> {
 
     public void add(T maybeToAdd) throws ValidationException {
         System.out.println("--------------------add--------------------");
-        T toAdd = Optional.of(maybeToAdd).orElseThrow(() -> new ValidationException("ToAdd object should not be null"));
+        T toAdd = Optional.ofNullable(maybeToAdd).orElseThrow(() -> new ValidationException("ToAdd object should not be null"));
         humans.add(toAdd);
     }
 
@@ -45,7 +45,7 @@ public class HumanRepository<T extends Human> {
 
     public void updateById(String id, T maybeHuman) throws EntityNotFoundException, ValidationException {
         System.out.println("--------------------updateById--------------------");
-        T human = Optional.of(maybeHuman).orElseThrow(() -> new ValidationException("Human should not be null"));
+        T human = Optional.ofNullable(maybeHuman).orElseThrow(() -> new ValidationException("Human should not be null"));
         T exists = humans.stream()
                 .filter(t -> (t.getId().equals(id)))
                 .findFirst().orElseThrow(() -> new EntityNotFoundException("Human does not exist"));
@@ -55,7 +55,7 @@ public class HumanRepository<T extends Human> {
 
     public String getById(String maybeId) throws ValidationException {
         System.out.println("--------------------getById--------------------");
-        String id = Optional.of(maybeId).orElseThrow(() -> new ValidationException("Id should not be null"));
+        String id = Optional.ofNullable(maybeId).orElseThrow(() -> new ValidationException("Id should not be null"));
         return humans.stream()
                 .filter(t -> (t.getId().equals(id)))
                 .collect(Collectors.toList())
@@ -64,7 +64,7 @@ public class HumanRepository<T extends Human> {
 
     public List<T> getAllByName(String maybeName) throws ValidationException {
         System.out.println("--------------------getAllByName--------------------");
-        String name = Optional.of(maybeName).orElseThrow(() -> new ValidationException("GetAllByName should not be called with a null \"name\" String"));
+        String name = Optional.ofNullable(maybeName).orElseThrow(() -> new ValidationException("GetAllByName should not be called with a null \"name\" String"));
         return humans.stream()
                 .filter(t -> t.getFirstName().startsWith(name))
                 .collect(Collectors.toList());
