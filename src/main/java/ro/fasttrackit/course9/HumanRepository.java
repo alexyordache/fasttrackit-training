@@ -3,6 +3,7 @@ package ro.fasttrackit.course9;
 import ro.fasttrackit.course5.Human;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,32 +28,30 @@ public class HumanRepository<T extends Human> {
 
     public List<T> getAll() {
         System.out.println("--------------------getAll--------------------");
-        return humans;
+        return Collections.unmodifiableList(humans);
     }
 
     public void deleteById(String id) {
         System.out.println("--------------------deleteById--------------------");
         T exists = humans.stream()
-                .filter(t -> (t.getId() == id))
-                .findFirst()
-                .get();
+                .filter(t -> (t.getId().equals(id)))
+                .findFirst().orElseThrow(() -> new RuntimeException("Human does not exist"));
         humans.remove(exists);
     }
 
     public void updateById(String id, T human) {
         System.out.println("--------------------updateById--------------------");
         T exists = humans.stream()
-                .filter(t -> (t.getId() == id))
-                .findFirst()
-                .get();
-        humans.remove(exists); // Assumes T implements equals() and hashCode()
+                .filter(t -> (t.getId().equals(id)))
+                .findFirst().orElseThrow(() -> new RuntimeException("Human does not exist"));
+        humans.remove(exists);
         humans.add(human);
     }
 
     public String getById(String id) {
         System.out.println("--------------------getById--------------------");
         return humans.stream()
-                .filter(t -> (t.getId() == id))
+                .filter(t -> (t.getId().equals(id)))
                 .collect(Collectors.toList())
                 .toString();
     }

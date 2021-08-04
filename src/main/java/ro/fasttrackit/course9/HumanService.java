@@ -2,8 +2,6 @@ package ro.fasttrackit.course9;
 
 import ro.fasttrackit.course5.*;
 
-import java.util.UUID;
-
 /**
  * 3. Create a HumanService class, having 2 HumanRepository fields:
  * HumanRepository<Student> studentRepository
