@@ -1,0 +1,51 @@
+create table students(id int, firstname varchar(64), lastname varchar(64));
+insert into students(id, firstname, lastname) values (2, 'Ion', 'Pop');
+select * from students;
+insert into students(id, firstname, lastname) values (2, 'Ioana', 'Popa');
+select * from students;
+select count(*) from students;
+insert into students(id, lastname, firstname) values (3, 'Popa', 'Maria');
+select * from students where lastname='Popa' or lastname='Pop';
+select * from students where id in (2,3,4,5,6);
+select * from students where firstname in ('Dan', 'Ion', 'Costel');
+select min(id) from students;
+select max(id) from students;
+select * from students where not lastname='Popa';
+select * from students;
+update students set lastname='Marinas' where lastname='Popa';
+update students set lastname='Ardelean' where id='3';
+select * from students;
+drop table assignment;
+create table assignment(
+	id serial unique primary key,
+	name varchar(128)
+);
+# serial -> generates ID
+# unique -> column values are unique
+select * from assignment;
+insert into assignment(name) values('tema de ieri');
+insert into assignment(id, name) values(1, 'tema la mate'); 
+insert into assignment(name) values('tema la mate');
+insert into assignment(name) values('tema de ieri');
+alter table assignment add column subject varchar(64) default 'mate';
+create index ix_assignment_subject on assignment(subject);
+select * from assignment where subject='mate';
+
+insert into assignment(name, subject) values ('eseu romana', 'romana');
+insert into assignment(name, subject) values ('referat bio', 'biologie');
+insert into assignment(name, subject) values ('experiment chm', 'chimie');
+insert into assignment(name, subject) values ('lucrare fizica', 'fizica');
+
+select * from assignment;
+alter table assignment add column student_id bigint;
+update assignment set student_id=1 where id in (1,2,3);
+update assignment set student_id=2 where id in (4,5);
+update assignment set student_id=3 where id in (6);
+select * from assignment;
+alter table assignment add foreign key student_id references students(id);
+
+
+
+
+
+
