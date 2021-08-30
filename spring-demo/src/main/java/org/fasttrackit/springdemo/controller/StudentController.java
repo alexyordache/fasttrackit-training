@@ -20,20 +20,9 @@ public class StudentController {
     private final SampleService sampleService;
     private final HumanService humanService;
 
-    /**
-     * @Value uses SpEL (Spring Expression Language)
-     * to read values from .property files.
-     * The default file in Spring for this is
-     * application.properties
-     */
     @Value("${mygivenvalue}")
     private String textFromPropertyFile;
 
-    /**
-     * Constructor injection using Spring DI.
-     *
-     * @param injectedService taken from Spring Application Context
-     */
     public StudentController(SampleService injectedService,
                              HumanService injectedHumanService) {
         this.sampleService = injectedService;
