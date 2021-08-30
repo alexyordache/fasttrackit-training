@@ -1,0 +1,16 @@
+CREATE DATABASE SQL_CREATE_TABLE_script;
+CREATE TABLE PERSON(ID bigint, FIRST_NAME varchar(50), LAST_NAME varchar(50));
+select * from person;
+INSERT INTO PERSON(ID, FIRST_NAME, LAST_NAME) values (1, 'Ion', 'Popa');
+select * from person;
+INSERT INTO PERSON(ID, FIRST_NAME, LAST_NAME) values (2, 'Maria', 'Popa');
+select * from person;
+INSERT INTO PERSON(ID, FIRST_NAME, LAST_NAME) values (3, 'Vasile', 'Dan');
+select * from person;
+ALTER TABLE PERSON
+ADD DATE_OF_BIRTH date;
+INSERT INTO PERSON(ID, DATE_OF_BIRTH) values(1, '1999-01-21');
+select * from person;
+INSERT INTO PERSON(ID, DATE_OF_BIRTH) values(2, '1993-10-24'); 
+INSERT INTO PERSON(ID, DATE_OF_BIRTH) values(3, '1990-06-12'); 
+select * from person;
