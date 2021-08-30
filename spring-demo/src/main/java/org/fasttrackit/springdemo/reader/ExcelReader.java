@@ -1,4 +1,4 @@
-package org.fasttrackit.springdemo.sample;
+package org.fasttrackit.springdemo.reader;
 
 import org.apache.poi.ss.usermodel.*;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
