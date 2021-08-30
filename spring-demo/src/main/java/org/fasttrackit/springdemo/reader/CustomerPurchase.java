@@ -1,4 +1,4 @@
-package org.fasttrackit.springdemo;
+package org.fasttrackit.springdemo.reader;
 
 public class CustomerPurchase {
     int iD;
