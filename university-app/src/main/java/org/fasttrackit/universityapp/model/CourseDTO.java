@@ -1,7 +1,5 @@
 package org.fasttrackit.universityapp.model;
 
-import javax.persistence.Column;
-
 public class CourseDTO {
     public Long id;
     public String content;
