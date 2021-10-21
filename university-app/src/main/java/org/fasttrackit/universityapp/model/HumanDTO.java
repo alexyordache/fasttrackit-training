@@ -6,6 +6,9 @@ public class HumanDTO {
     public String lastName;
     public String firstName;
 
+    public HumanDTO() {
+    }
+
     public HumanDTO(Long id, String cnp, String lastName, String firstName) {
         this.id = id;
         this.cnp = cnp;

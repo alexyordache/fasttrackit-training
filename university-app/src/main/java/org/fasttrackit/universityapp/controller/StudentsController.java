@@ -1,10 +1,12 @@
 package org.fasttrackit.universityapp.controller;
 
+import org.fasttrackit.universityapp.UniversityAppApplication;
 import org.fasttrackit.universityapp.entity.*;
 import org.fasttrackit.universityapp.model.AssignCoursesRequest;
 import org.fasttrackit.universityapp.model.ScheduledCourseDTO;
 import org.fasttrackit.universityapp.model.StudentDTO;
 import org.fasttrackit.universityapp.repository.*;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import javax.transaction.Transactional;
@@ -21,14 +23,16 @@ public class StudentsController {
     private final ProfessorsRepository professorRepository;
     private final SemestersRepository semestersRepository;
     private final ScheduleCourseRepository scheduleCourseRepository;
+    private final RabbitTemplate rabbitTemplate;
 
-    public StudentsController(StudentsRepository studentsRepository, HumansRepository humanRepository, CoursesRepository coursesRepository, ProfessorsRepository professorRepository, SemestersRepository semestersRepository, ScheduleCourseRepository scheduleCourseRepository) {
+    public StudentsController(StudentsRepository studentsRepository, HumansRepository humanRepository, CoursesRepository coursesRepository, ProfessorsRepository professorRepository, SemestersRepository semestersRepository, ScheduleCourseRepository scheduleCourseRepository, RabbitTemplate rabbitTemplate) {
         this.studentsRepository = studentsRepository;
         this.humanRepository = humanRepository;
         this.coursesRepository = coursesRepository;
         this.professorRepository = professorRepository;
         this.semestersRepository = semestersRepository;
         this.scheduleCourseRepository = scheduleCourseRepository;
+        this.rabbitTemplate = rabbitTemplate;
     }
 
     @GetMapping("/students")
@@ -80,6 +84,7 @@ public class StudentsController {
         for (Student student : students) {
             student.getScheduledCourses().add(save);
             updatedStudents.add(studentsRepository.save(student));
+            rabbitTemplate.convertAndSend("queue-01", "Student " + student.getFirstName() + " " + student.getLastName() + " was enrolled to the course " + scheduledCourse.getCourse().getContent());
         }
 
         // TODO Sent rabbitMQ notification to the other project
