@@ -1,6 +1,5 @@
 package org.fasttrackit.universityapp.controller;
 
-import org.fasttrackit.universityapp.UniversityAppApplication;
 import org.fasttrackit.universityapp.entity.*;
 import org.fasttrackit.universityapp.model.AssignCoursesRequest;
 import org.fasttrackit.universityapp.model.ScheduledCourseDTO;
@@ -86,10 +85,6 @@ public class StudentsController {
             updatedStudents.add(studentsRepository.save(student));
             rabbitTemplate.convertAndSend("queue-01", "Student " + student.getFirstName() + " " + student.getLastName() + " was enrolled to the course " + scheduledCourse.getCourse().getContent());
         }
-
-        // TODO Sent rabbitMQ notification to the other project
-/*        rabbitTemplate.convertAndSend(MessagingRabbitmqApplication.topicExchangeName, "foo.bar.baz", "Hello from RabbitMQ!");
-        receiver.getLatch().await(10000, TimeUnit.MILLISECONDS);*/
 
         return updatedStudents.stream().map(student -> new StudentDTO(
                 student.getId(),

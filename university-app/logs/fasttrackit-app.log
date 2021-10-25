@@ -304,3 +304,24 @@ Consider defining a bean of type 'org.springframework.amqp.rabbit.listener.adapt
 20:43:23.635 [http-nio-8085-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms <no request,no span> 
 20:43:24.181 [http-nio-8085-exec-1] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Attempting to connect to: [localhost:5672] <no request,no span> 
 20:43:24.246 [http-nio-8085-exec-1] INFO  org.springframework.amqp.rabbit.connection.CachingConnectionFactory - Created new connection: rabbitConnectionFactory#32d0d7eb:0/SimpleConnection@6abf2a34 [delegate=amqp://guest@127.0.0.1:5672/, localPort= 52381] <no request,no span> 
+20:46:24.682 [main] INFO  org.fasttrackit.universityapp.UniversityAppApplication - Starting UniversityAppApplication using Java 1.8.0_291 on LT21016RO with PID 30500 (C:\work1\repos\fasttrackit-training\university-app\build\classes\java\main started by alexandru.iordache in C:\work1\repos\fasttrackit-training\university-app) <no request,no span> 
+20:46:24.687 [main] INFO  org.fasttrackit.universityapp.UniversityAppApplication - No active profile set, falling back to default profiles: default <no request,no span> 
+20:46:26.152 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode. <no request,no span> 
+20:46:26.281 [main] INFO  org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 101 ms. Found 6 JPA repository interfaces. <no request,no span> 
+20:46:26.798 [main] INFO  org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'org.springframework.ws.config.annotation.DelegatingWsConfiguration' of type [org.springframework.ws.config.annotation.DelegatingWsConfiguration$$EnhancerBySpringCGLIB$$1028407e] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying) <no request,no span> 
+20:46:26.868 [main] INFO  org.springframework.ws.soap.addressing.server.AnnotationActionEndpointMapping - Supporting [WS-Addressing August 2004, WS-Addressing 1.0] <no request,no span> 
+20:46:27.838 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8085 (http) <no request,no span> 
+20:46:27.922 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8085"] <no request,no span> 
+20:46:27.923 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat] <no request,no span> 
+20:46:27.923 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/9.0.52] <no request,no span> 
+20:46:28.034 [main] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext <no request,no span> 
+20:46:28.034 [main] INFO  org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3287 ms <no request,no span> 
+20:46:30.898 [main] INFO  org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default' <no request,no span> 
+20:46:32.484 [main] WARN  org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning <no request,no span> 
+20:46:34.256 [main] INFO  org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver - Exposing 1 endpoint(s) beneath base path '/actuator' <no request,no span> 
+20:46:34.309 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8085"] <no request,no span> 
+20:46:34.356 [main] INFO  org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8085 (http) with context path '' <no request,no span> 
+20:46:34.383 [main] INFO  org.fasttrackit.universityapp.UniversityAppApplication - Started UniversityAppApplication in 10.218 seconds (JVM running for 10.86) <no request,no span> 
+20:46:34.524 [http-nio-8085-exec-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet' <no request,no span> 
+20:46:34.525 [http-nio-8085-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet' <no request,no span> 
+20:46:34.528 [http-nio-8085-exec-1] INFO  org.springframework.web.servlet.DispatcherServlet - Completed initialization in 1 ms <no request,no span> 
